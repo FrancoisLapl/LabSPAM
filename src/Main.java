@@ -37,7 +37,6 @@ public class Main {
             BufferedWriter worstWriter = new BufferedWriter(new FileWriter("EquipeF-moins.txt"));
 
             for (Enumeration<Instance> e = data.enumerateInstances(); e.hasMoreElements();) {
-//                System.out.println(naiveBayes.classifyInstance(e.nextElement()));
                 worstWriter.write(String.valueOf((int)naiveBayes.classifyInstance(e.nextElement())));
                 worstWriter.newLine();
             }
@@ -48,7 +47,6 @@ public class Main {
             BufferedWriter bestWriter = new BufferedWriter(new FileWriter("EquipeF-plus.txt"));
 
             for (Enumeration<Instance> e = data.enumerateInstances(); e.hasMoreElements();) {
-//                System.out.println(wrapper.classifyInstance(e.nextElement()));
                 bestWriter.write(String.valueOf((int)wrapper.classifyInstance(e.nextElement())));
                 bestWriter.newLine();
             }
@@ -58,32 +56,6 @@ public class Main {
         } catch (Exception e){
             System.out.println("Oups, something went wrong.");
         }
-
-
-//        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))){
-//
-//            Instances data = new Instances(bufferedReader);
-//            bufferedReader.close();
-//
-//            data.setClassIndex(data.numAttributes() - 1);
-//
-//            WekaWrapper wrapper = new WekaWrapper();
-//            NaiveBayes naiveBayes = (NaiveBayes) SerializationHelper.read(new FileInputStream("NaiveBayesModel.model"));
-//
-//            System.out.println("NaiveBayes----------------------------------------------------------------------");
-//            for (Enumeration<Instance> e = data.enumerateInstances(); e.hasMoreElements();) {
-//                System.out.println(naiveBayes.classifyInstance(e.nextElement()));
-//            }
-//
-//            System.out.println("J48 Tree  ----------------------------------------------------------------------");
-//            for (Enumeration<Instance> e = data.enumerateInstances(); e.hasMoreElements();) {
-//                System.out.println(wrapper.classifyInstance(e.nextElement()));
-//            }
-//
-//        } catch (Exception e){
-//            // Swallow that shit
-//            System.out.println(e);
-//        }
     }
 
     private static Instances getInstances(String filePath) {
